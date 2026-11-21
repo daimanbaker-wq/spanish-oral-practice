@@ -27,7 +27,8 @@ export default async (req) => {
       });
     }
 
-    const model = careful ? "gemini-2.5-pro" : "gemini-2.5-flash";
+    // Default to gemini-3.5-flash which is active, fast, and fully supported on modern v1beta
+    const model = "gemini-3.5-flash";
     const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`;
 
     const upstream = await fetch(endpoint, {
