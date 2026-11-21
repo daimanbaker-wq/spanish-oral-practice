@@ -27,8 +27,8 @@ export default async (req) => {
       });
     }
 
-    // Default to gemini-3.5-flash which is active, fast, and fully supported on modern v1beta
-    const model = "gemini-3.5-flash";
+    // gemini-3.5-flash-lite provides sub-2-second latency well within Netlify's 10s function limit
+    const model = careful ? "gemini-3.5-flash" : "gemini-3.5-flash-lite";
     const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`;
 
     const upstream = await fetch(endpoint, {
