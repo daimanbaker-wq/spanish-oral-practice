@@ -466,8 +466,8 @@
           Speech speed (Spanish voice)
           <select id="selSpeed">
             <option value="0.7">0.7× — Very slow</option>
-            <option value="0.8">0.8× — Slower</option>
-            <option value="1.0" selected>1.0× — Normal</option>
+            <option value="0.8" selected>0.8× — Slower</option>
+            <option value="1.0">1.0× — Normal</option>
             <option value="1.2">1.2× — Faster</option>
             <option value="1.35">1.35× — Fast</option>
           </select>
@@ -680,7 +680,7 @@
       source: "1",
       category: "ALL",
       length: "10",
-      speed: 1.0,
+      speed: 0.8,
       showText: false,
       careful: false,
       voiceURI: "",
@@ -709,7 +709,7 @@
         if (saved.length) state.length = String(saved.length);
         if (saved.speed !== undefined) {
           const s = Number(saved.speed);
-          state.speed = VALID_SPEEDS.includes(s.toFixed(1)) || VALID_SPEEDS.includes(String(s)) ? s : 1.0;
+          state.speed = VALID_SPEEDS.includes(s.toFixed(1)) || VALID_SPEEDS.includes(String(s)) ? s : 0.8;
         }
         if (typeof saved.showText === "boolean") state.showText = saved.showText;
         if (typeof saved.careful === "boolean") state.careful = saved.careful;
